@@ -1,3 +1,24 @@
 #!/usr/bin/env ruby
 
 require_relative '../config/environment'
+
+puts "GREETINGS PROFESSOR FALKEN."
+puts "SHALL WE PLAY A GAME? (Y/N)"
+answer = gets.chomp.downcase
+
+when answer
+	case "y"
+		puts "HOW MANY HUMAN PLAYERS? (0, 1 OR 2)"
+		players = gets.chomp
+		case players
+			when "0"
+
+			when "1"
+
+			when "2"
+
+			else
+				puts "THAT WAS AN INVALID ANSWER!"
+			end
+	case "n"
+end
