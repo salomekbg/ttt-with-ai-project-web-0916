@@ -61,12 +61,16 @@ class Game
 			turn
 		end
 
+		@end_play = ""
+
 		if won?
 			board.display
 			puts ""
-			puts "Congratulations #{winner}!"
+			play = "Congratulations #{winner}!"
+			puts @end_play
 		elsif draw?
-			puts "Cats Game!"
+			play = "Cats Game!"
+			puts @end_play
 		end
 	end
 

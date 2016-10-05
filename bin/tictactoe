@@ -30,7 +30,17 @@ case answer
 			when "2"
 				game = Game.new
 				game.play
+
 			when "wargames"
+				counter = 0
+				100.times do
+					game = Game.new(player_1 = Players::Computer.new("X"), player_2 = Players::Computer.new("O"))
+					game.play
+					if @end_play == "Cats Game!"
+						counter += 1
+					end
+				end
+				puts "The game was won #{counter} times out of 100!"
 
 			else
 				puts "THAT WAS AN INVALID ANSWER!"
