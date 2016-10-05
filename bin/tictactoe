@@ -6,19 +6,35 @@ puts "GREETINGS PROFESSOR FALKEN."
 puts "SHALL WE PLAY A GAME? (Y/N)"
 answer = gets.chomp.downcase
 
-when answer
-	case "y"
-		puts "HOW MANY HUMAN PLAYERS? (0, 1 OR 2)"
-		players = gets.chomp
+case answer
+	when "y"
+		puts "HOW MANY HUMAN PLAYERS? (0, 1, 2, OR WARGAMES)"
+		players = gets.chomp.downcase
 		case players
 			when "0"
+				game = Game.new(player_1 = Players::Computer.new("X"), player_2 = Players::Computer.new("O"))
+				game.play
 
 			when "1"
+				puts "WHO SHOULD GO FIRST?(HUMAN OR COMPUTER)"
+				first_human_or_comp = gets.chomp.downcase
+					case first_human_or_comp 
+						when "human"
+							game = Game.new(player_1 = Players::Human.new("X"), player_2 = Players::Computer.new("O"))
+							game.play
+						when "computer"
+							game = Game.new(player_1 = Players::Computer.new("X"), player_2 = Players::Human.new("O"))
+							game.play
+						end
 
 			when "2"
+				game = Game.new
+				game.play
+			when "wargames"
 
 			else
 				puts "THAT WAS AN INVALID ANSWER!"
 			end
-	case "n"
+	when "n"
+		puts "GOODBYE!"
 end

@@ -21,10 +21,6 @@ class Game
 		@winner = ""
 	end
 
-	def cells
-
-	end
-
 	def current_player
 		board.turn_count % 2 == 0 ? player_1 : player_2
 		#at the end of an even turn, it will be player_1's turn
@@ -60,16 +56,14 @@ class Game
 		@winner if won?
 	end
 
-	def start
-
-	end
-
 	def play
 		until won? || draw?
 			turn
 		end
 
 		if won?
+			board.display
+			puts ""
 			puts "Congratulations #{winner}!"
 		elsif draw?
 			puts "Cats Game!"
